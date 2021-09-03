@@ -11,7 +11,7 @@ using Telerik.Windows.Controls;
 
 namespace HAF {
 
-  public class SelectedItemsBehavior : Behavior<RadComboBox> {
+  public class SelectedItemsBehavior: Behavior<RadComboBox> {
 
     private RadComboBox ComboBox {
       get {
