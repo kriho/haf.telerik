@@ -69,7 +69,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Services\DockingWindowService.cs" />
-    <Compile Include="Services\ThemesService.cs" />
+    <Compile Include="Services\TelerikThemesService.cs" />
     <Compile Include="Views\Updates.xaml.cs" />
     <Page Include="Themes\Overrides.xaml">
       <Generator>MSBuild:Compile</Generator>
