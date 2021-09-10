@@ -110,7 +110,7 @@
         <Setter Property="FontFamily" Value="Segoe UI"/>
         <Setter Property="TextBoxStyle">
             <Setter.Value>
-                <Style TargetType="TextBox" BasedOn="{StaticResource TextBoxStyle}">
+                <Style TargetType="TextBox" BasedOn="{StaticResource ComboBoxTextBoxStyle}">
                     <Setter Property="FontFamily" Value="Segoe UI"/>
                     <Setter Property="FontSize" Value="15"/>
                     <Setter Property="BorderThickness" Value="0"/>
@@ -137,27 +137,31 @@
     <Style TargetType="{x:Type telerik:RadDocking}" BasedOn="{StaticResource RadDockingStyle}">
         <Setter Property="HasDocumentHost" Value="False"/>
         <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="Margin" Value="3"/>
     </Style>
 
     <Style TargetType="telerik:RadPaneGroup" BasedOn="{StaticResource RadPaneGroupStyle}">
-        <Setter Property="Padding" Value="0"/>
+        <Setter Property="Foreground" Value="{DynamicResource ThemeTextBrush}"/>
+        <Style.Triggers>
+            <Trigger Property="IsSelected" Value="True">
+                <Setter Property="Foreground" Value="{DynamicResource ThemeTextBrush}"/>
+            </Trigger>
+        </Style.Triggers>
     </Style>
 
     <Style TargetType="telerik:RadToggleButton" BasedOn="{StaticResource RadToggleButtonStyle}">
-        <Setter Property="Foreground" Value="{StaticResource ThemeStrongBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource ThemeStrongBrush}"/>
         <Style.Triggers>
             <Trigger Property="IsChecked" Value="True">
-                <Setter Property="Foreground" Value="{telerik:Windows8Resource ResourceKey=BasicBrush}"/>
+                <Setter Property="Foreground" Value="{DynamicResource ThemeLightBrush}"/>
             </Trigger>
         </Style.Triggers>
     </Style>
 
     <Style TargetType="telerik:RadTabItem" BasedOn="{StaticResource RadTabItemStyle}">
-        <Setter Property="Foreground" Value="{StaticResource ThemeStrongBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource ThemeTextBrush}"/>
         <Style.Triggers>
             <Trigger Property="IsSelected" Value="True">
-                <Setter Property="Foreground" Value="{StaticResource ThemeLightBrush}"/>
+                <Setter Property="Foreground" Value="{DynamicResource ThemeBackgroundBrush}"/>
             </Trigger>
         </Style.Triggers>
     </Style>
@@ -170,74 +174,40 @@
         <Setter Property="TitleTemplate">
             <Setter.Value>
                 <DataTemplate>
-                    <DockPanel Margin="0,2">
-                        <TextBlock Text="{Binding}" FontSize="15"/>
-                    </DockPanel>
+                    <TextBlock Text="{Binding}" FontSize="15" Margin="0,2"/>
                 </DataTemplate>
             </Setter.Value>
         </Setter>
     </Style>
 
-    <!-- HAF controls ############################################################################################################### -->
-
-    <!-- this style must be explixitly used since styles are not implicetly used for derviced types -->
-    <Style x:Key="ChromeWindowStyle" TargetType="{x:Type haf:ChromeWindow}">
-        <Setter Property="WindowStyle" Value="ToolWindow"/>
-        <Setter Property="WindowChrome.WindowChrome">
-            <Setter.Value>
-                <WindowChrome CaptionHeight="28" ResizeBorderThickness="5"/>
-            </Setter.Value>
-        </Setter>
-        <Setter Property="Header">
-            <Setter.Value>
-                <DockPanel>
-                    <Image Source="{Binding Icon, ElementName=window}" Width="20" Margin="8,4"/>
-                    <TextBlock Text="{Binding Title, ElementName=window}" Foreground="{StaticResource ThemeTextBrush}" VerticalAlignment="Center"/>
-                </DockPanel>
-            </Setter.Value>
-        </Setter>
+    <Style TargetType="telerik:RadListBoxItem" BasedOn="{StaticResource RadListBoxItemStyle}">
+        <Setter Property="Padding" Value="3" />
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type haf:ChromeWindow}">
-                    <Border x:Name="PART_Border" Padding="0">
-                        <Grid Background="{TemplateBinding Background}">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="28"/>
-                                <RowDefinition Height="1*"/>
-                            </Grid.RowDefinitions>
-                            <DockPanel>
-                                <DockPanel.Background>
-                                    <SolidColorBrush Color="{TemplateBinding Foreground}" Opacity="0.07"/>
-                                </DockPanel.Background>
-                                <Button x:Name="PART_Close" DockPanel.Dock="Right" WindowChrome.IsHitTestVisibleInChrome="True" Padding="0" BorderThickness="0" Focusable="False">
-                                    <Path Width="38" Height="28" Data="M 14,9 23,18 M 14,18 23,9" Stroke="{TemplateBinding Foreground}" StrokeThickness="1"/>
-                                </Button>
-                                <Button x:Name="PART_Maximize" DockPanel.Dock="Right" WindowChrome.IsHitTestVisibleInChrome="True" Padding="0" BorderThickness="0" Focusable="False">
-                                    <Path Width="38" Height="28" Data="M 14.5,8.5 H 23.5 V 17.5 H 14.5 Z" Stroke="{TemplateBinding Foreground}" StrokeThickness="1"/>
-                                </Button>
-                                <Button x:Name="PART_Restore" DockPanel.Dock="Right" Visibility="Collapsed" WindowChrome.IsHitTestVisibleInChrome="True" Padding="0" BorderThickness="0" Focusable="False">
-                                    <Path Width="38" Height="28" Data="M 14.5,10.5 H 21.5 V 17.5 H 14.5 Z M 16.5,10.5 V 8.5 H 23.5 V 15.5 H 21.5" Stroke="{TemplateBinding Foreground}" StrokeThickness="1"/>
-                                </Button>
-                                <Button x:Name="PART_Minimize" DockPanel.Dock="Right" WindowChrome.IsHitTestVisibleInChrome="True" Padding="0" BorderThickness="0" Focusable="False">
-                                    <Path Width="38" Height="28" Data="M 14,15 H 24" Stroke="{TemplateBinding Foreground}" StrokeThickness="1"/>
-                                </Button>
-                                <ContentPresenter Content="{TemplateBinding Header}"/>
-                            </DockPanel>
-                            <ContentPresenter Grid.Row="1"/>
+                <ControlTemplate TargetType="telerik:RadListBoxItem">
+                    <Border x:Name="PART_border" BorderThickness="{TemplateBinding BorderThickness}"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}">
+                        <Grid>
+                            <ContentPresenter
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Margin="{TemplateBinding Padding}"/>
+                            <Rectangle x:Name="PART_overlay" Fill="{DynamicResource ThemeTextBrush}" Opacity="0" IsHitTestVisible="False"/>
                         </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
-                        <Trigger Property="WindowState" Value="Maximized">
-                            <Setter TargetName="PART_Maximize" Property="Visibility" Value="Collapsed"/>
-                            <Setter TargetName="PART_Restore" Property="Visibility" Value="Visible"/>
-                            <Setter TargetName="PART_Border" Property="Padding" Value="7"/>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="PART_overlay" Property="Opacity" Value="0.03"/>
+                        </Trigger>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter TargetName="PART_overlay" Property="Opacity" Value="0.08"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
-
 
     <!-- Validation ############################################################################################################### -->
 
