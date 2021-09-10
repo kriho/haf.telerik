@@ -13,18 +13,17 @@ using System.Xml;
 
 namespace HAF {
 
+  public enum TelerikTheme {
+    Windows8,
+    Office2016,
+  }
+
   [Export(typeof(IThemesService)), PartCreationPolicy(CreationPolicy.Shared)]
   public class TelerikThemesService: ThemesService {
 
+    public TelerikTheme TelerikTheme { get; set; } = TelerikTheme.Office2016;
+
     public TelerikThemesService() {
-      this.OnActiveThemeChanged.Register(() => {
-        // update telerik colors
-        Telerik.Windows.Controls.Windows8Palette.Palette.MainColor = this.ActiveTheme.BackgroundColor;
-        Telerik.Windows.Controls.Windows8Palette.Palette.MarkerColor = this.ActiveTheme.TextColor;
-        Telerik.Windows.Controls.Windows8Palette.Palette.AccentColor = this.ActiveTheme.AccentColor;
-        Telerik.Windows.Controls.Windows8Palette.Palette.BasicColor = this.ActiveTheme.LightColor;
-        Telerik.Windows.Controls.Windows8Palette.Palette.StrongColor = this.ActiveTheme.StrongColor;
-      });
       // disable touch manager for increased performance 
       Telerik.Windows.Input.Touch.TouchManager.IsTouchEnabled = false;
       // set fixed font size
@@ -35,10 +34,38 @@ namespace HAF {
       Telerik.Windows.Controls.Windows8Palette.Palette.FontSizeXL = 15;
       Telerik.Windows.Controls.Windows8Palette.Palette.FontSizeXXL = 15;
       Telerik.Windows.Controls.Windows8Palette.Palette.FontSizeXXXL = 15;
-      // set fonts
-      Telerik.Windows.Controls.Windows8Palette.Palette.FontFamily = new FontFamily("Segoe UI");
-      Telerik.Windows.Controls.Windows8Palette.Palette.FontFamilyLight = new FontFamily("Segoe UI Light");
-      Telerik.Windows.Controls.Windows8Palette.Palette.FontFamilyStrong = new FontFamily("Segoe UI Semibold");
+      // set fixed font size
+      Telerik.Windows.Controls.Office2016Palette.Palette.FontSizeS = 14;
+      Telerik.Windows.Controls.Office2016Palette.Palette.FontSize = 14;
+      Telerik.Windows.Controls.Office2016Palette.Palette.FontSizeL = 16;
+    }
+
+    protected override void ApplyTheme(ITheme theme) {
+      base.ApplyTheme(theme);
+      // update telerik colors
+      if(this.TelerikTheme == TelerikTheme.Windows8) {
+        Telerik.Windows.Controls.Windows8Palette.Palette.MainColor = this.ActiveTheme.BackgroundColor;
+        Telerik.Windows.Controls.Windows8Palette.Palette.MarkerColor = this.ActiveTheme.TextColor;
+        Telerik.Windows.Controls.Windows8Palette.Palette.AccentColor = this.ActiveTheme.AccentColor;
+        Telerik.Windows.Controls.Windows8Palette.Palette.BasicColor = this.ActiveTheme.LightColor;
+        Telerik.Windows.Controls.Windows8Palette.Palette.StrongColor = this.ActiveTheme.StrongColor;
+      } else if(this.TelerikTheme == TelerikTheme.Office2016) {
+        Telerik.Windows.Controls.Office2016Palette.Palette.MainColor = this.ActiveTheme.ControlColor;
+        Telerik.Windows.Controls.Office2016Palette.Palette.AlternativeColor = this.ActiveTheme.BackgroundColor;
+        Telerik.Windows.Controls.Office2016Palette.Palette.MouseOverColor = this.ActiveTheme.BackgroundColor;
+        Telerik.Windows.Controls.Office2016Palette.Palette.MarkerInvertedColor = this.ActiveTheme.BackgroundColor;
+        Telerik.Windows.Controls.Office2016Palette.Palette.MarkerColor = this.ActiveTheme.TextColor;
+        Telerik.Windows.Controls.Office2016Palette.Palette.AccentColor = this.ActiveTheme.AccentColor;
+        Telerik.Windows.Controls.Office2016Palette.Palette.ComplementaryColor = this.ActiveTheme.AccentColor;
+        Telerik.Windows.Controls.Office2016Palette.Palette.AccentPressedColor = this.ActiveTheme.AccentColor;
+        Telerik.Windows.Controls.Office2016Palette.Palette.AccentFocusedColor = this.ActiveTheme.ActionColor;
+        Telerik.Windows.Controls.Office2016Palette.Palette.AccentMouseOverColor = this.ActiveTheme.ActionColor;
+        Telerik.Windows.Controls.Office2016Palette.Palette.PrimaryColor = this.ActiveTheme.LightColor;
+        Telerik.Windows.Controls.Office2016Palette.Palette.SelectedColor = this.ActiveTheme.LightColor;
+        Telerik.Windows.Controls.Office2016Palette.Palette.IconColor = this.ActiveTheme.StrongColor;
+        Telerik.Windows.Controls.Office2016Palette.Palette.BasicColor = this.ActiveTheme.StrongColor;
+        Telerik.Windows.Controls.Office2016Palette.Palette.PressedColor = this.ActiveTheme.StrongColor;
+      }
     }
   }
 }
