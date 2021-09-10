@@ -45,23 +45,37 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
-    <Reference Include="Telerik.Windows.Controls">
-      <HintPath>..\lib\RCWPF\2017.3.1018.45.NoXaml\Telerik.Windows.Controls.dll</HintPath>
+    <Reference Include="Telerik.Windows.Controls, Version=2021.2.615.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWPF\2021.2.615.45.Trial\Telerik.Windows.Controls.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Controls.Diagrams">
-      <HintPath>..\lib\RCWPF\2017.3.1018.45.NoXaml\Telerik.Windows.Controls.Diagrams.dll</HintPath>
+    <Reference Include="Telerik.Windows.Controls.Chart, Version=2021.2.615.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWPF\2021.2.615.45.Trial\Telerik.Windows.Controls.Chart.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Controls.Docking">
-      <HintPath>..\lib\RCWPF\2017.3.1018.45.NoXaml\Telerik.Windows.Controls.Docking.dll</HintPath>
+    <Reference Include="Telerik.Windows.Controls.Data, Version=2021.2.615.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWPF\2021.2.615.45.Trial\Telerik.Windows.Controls.Data.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Controls.Input">
-      <HintPath>..\lib\RCWPF\2017.3.1018.45.NoXaml\Telerik.Windows.Controls.Input.dll</HintPath>
+    <Reference Include="Telerik.Windows.Controls.Docking, Version=2021.2.615.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWPF\2021.2.615.45.Trial\Telerik.Windows.Controls.Docking.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Controls.Navigation">
-      <HintPath>..\lib\RCWPF\2017.3.1018.45.NoXaml\Telerik.Windows.Controls.Navigation.dll</HintPath>
+    <Reference Include="Telerik.Windows.Controls.GridView, Version=2021.2.615.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWPF\2021.2.615.45.Trial\Telerik.Windows.Controls.GridView.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.Windows.Data">
-      <HintPath>..\lib\RCWPF\2017.3.1018.45.NoXaml\Telerik.Windows.Data.dll</HintPath>
+    <Reference Include="Telerik.Windows.Controls.Input, Version=2021.2.615.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWPF\2021.2.615.45.Trial\Telerik.Windows.Controls.Input.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Navigation, Version=2021.2.615.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWPF\2021.2.615.45.Trial\Telerik.Windows.Controls.Navigation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Data, Version=2021.2.615.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>..\lib\RCWPF\2021.2.615.45.Trial\Telerik.Windows.Data.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
@@ -71,7 +85,11 @@
     <Compile Include="Services\DockingWindowService.cs" />
     <Compile Include="Services\TelerikThemesService.cs" />
     <Compile Include="Views\Updates.xaml.cs" />
-    <Page Include="Themes\Overrides.xaml">
+    <Page Include="Resources\Office2016.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Windows8.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
