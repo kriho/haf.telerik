@@ -10,7 +10,6 @@ using System.Threading.Tasks;
 using Telerik.Windows.Controls;
 
 namespace HAF {
-
   [Export(typeof(IDockingWindowService)), PartCreationPolicy(CreationPolicy.Shared)]
   public class DockingWindowService : WindowService, IDockingWindowService {
 
