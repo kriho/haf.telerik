@@ -1,0 +1,9 @@
+﻿<UserControl x:Class="HAF.SettingsDrawers.NumericUpDown"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             xmlns:haf="http://www.hornung.dev/xaml/presentation">
+    <haf:HeaderedFormGroup Header="{Binding DisplayName}">
+        <telerik:RadNumericUpDown Value="{Binding Value, Mode=TwoWay}" NumberDecimalDigits="0" Minimum="{Binding Min}" Maximum="{Binding Max}" CustomUnit="{Binding Unit}" HorizontalContentAlignment="Left"/>
+    </haf:HeaderedFormGroup>
+</UserControl>

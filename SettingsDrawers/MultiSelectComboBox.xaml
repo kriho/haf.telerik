@@ -1,0 +1,15 @@
+﻿<UserControl x:Class="HAF.SettingsDrawers.MultiSelectComboBox"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             xmlns:local="clr-namespace:HAF"
+             xmlns:haf="http://www.hornung.dev/xaml/presentation"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity">
+    <haf:HeaderedFormGroup x:Name="header">
+        <telerik:RadComboBox AllowMultipleSelection="True" Name="control" MultipleSelectionSeparator="," IsMouseWheelEnabled="False">
+            <i:Interaction.Behaviors>
+                <local:SelectedItemsBehavior x:Name="behavior"/>
+            </i:Interaction.Behaviors>
+        </telerik:RadComboBox>
+    </haf:HeaderedFormGroup>
+</UserControl>

@@ -1,0 +1,11 @@
+﻿<UserControl x:Class="HAF.SettingsDrawers.CheckBox"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             xmlns:haf="http://www.hornung.dev/xaml/presentation">
+    <haf:FormGroup>
+        <CheckBox IsChecked="{Binding Value, Mode=TwoWay}" Padding="5,0,0,0">
+            <TextBlock Text="{Binding DisplayName}" TextWrapping="Wrap"/>
+        </CheckBox>
+    </haf:FormGroup>
+</UserControl>
