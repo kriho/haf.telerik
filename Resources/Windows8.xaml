@@ -9,7 +9,7 @@
         <Setter Property="Margin" Value="0"/>
         <Setter Property="Padding" Value="10"/>
         <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="BorderBrush" Value="{StaticResource ThemeStrongBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource ThemeStrongBrush}"/>
         <Setter Property="FontFamily" Value="Segoe UI"/>
         <Setter Property="FontSize" Value="15"/>
         <Setter Property="ItemContainerStyleSelector">
@@ -67,7 +67,7 @@
 
     <Style TargetType="ScrollViewer" BasedOn="{StaticResource ScrollViewerStyle}">
         <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="BorderBrush" Value="{StaticResource ThemeStrongBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource ThemeStrongBrush}"/>
     </Style>
     <!--
     <Style TargetType="telerik:GridViewHeaderCell" BasedOn="{StaticResource GridViewHeaderCellStyle}">
