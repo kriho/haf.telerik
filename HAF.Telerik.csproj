@@ -68,6 +68,10 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Behaviours\CloseDropDown.cs" />
+    <Compile Include="Behaviours\DropDownFocus.cs" />
+    <Compile Include="Behaviours\EscapeFocus.cs" />
+    <Compile Include="Behaviours\SubmitButton.cs" />
     <Compile Include="Services\DockingWindowService.cs" />
     <Compile Include="Services\ThemesService.cs" />
     <Compile Include="SettingsDrawers\NumericUpDown.xaml.cs">
@@ -114,10 +118,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="SettingsDrawers\CheckBox.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Themes\Overrides.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

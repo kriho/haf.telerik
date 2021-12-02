@@ -42,6 +42,10 @@
         <Setter Property="BorderThickness" Value="0"/>
     </Style>
 
+    <Style TargetType="telerik:RadButton" BasedOn="{StaticResource RadButtonStyle}">
+        <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisualStyle}"/>
+    </Style>
+
     <Style TargetType="TextBlock">
         <Setter Property="LineStackingStrategy" Value="BlockLineHeight"/>
     </Style>
@@ -49,5 +53,9 @@
     <Style TargetType="{x:Type telerik:RadDocking}" BasedOn="{StaticResource RadDockingStyle}">
         <Setter Property="HasDocumentHost" Value="False"/>
         <Setter Property="BorderThickness" Value="0"/>
+    </Style>
+
+    <Style TargetType="{x:Type telerik:RadExpander}" BasedOn="{StaticResource RadExpanderStyle}">
+        <Setter Property="telerik:AnimationManager.IsAnimationEnabled" Value="False"/>
     </Style>
 </ResourceDictionary>
