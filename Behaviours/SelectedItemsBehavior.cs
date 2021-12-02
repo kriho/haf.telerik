@@ -12,13 +12,12 @@ using Telerik.Windows.Data;
 
 namespace HAF {
   public class SelectedItemsBehavior : Behavior<RadComboBox> {
-
+    public static readonly DependencyProperty SelectedItemsProperty = DependencyProperty.Register("SelectedItems", typeof(INotifyCollectionChanged), typeof(SelectedItemsBehavior), new PropertyMetadata(OnSelectedItemsPropertyChanged));
     public INotifyCollectionChanged SelectedItems {
       get => (INotifyCollectionChanged)GetValue(SelectedItemsProperty);
       set => this.SetValue(SelectedItemsProperty, value);
     }
 
-    public static readonly DependencyProperty SelectedItemsProperty = DependencyProperty.Register("SelectedItems", typeof(INotifyCollectionChanged), typeof(SelectedItemsBehavior), new PropertyMetadata(OnSelectedItemsPropertyChanged));
 
     private static void OnSelectedItemsPropertyChanged(DependencyObject target, DependencyPropertyChangedEventArgs args) {
       if (args.NewValue is INotifyCollectionChanged collection) {
