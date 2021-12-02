@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
              xmlns:haf="http://www.hornung.dev/xaml/presentation">
-    <haf:HeaderedFormGroup Header="{Binding DisplayName}">
+    <haf:HeaderedFormGroup Header="{Binding DisplayName}" BorderBrush="{x:Null}">
         <telerik:RadNumericUpDown Value="{Binding Value, Mode=TwoWay}" NumberDecimalDigits="0" Minimum="{Binding Min}" Maximum="{Binding Max}" CustomUnit="{Binding Unit}" HorizontalContentAlignment="Left"/>
     </haf:HeaderedFormGroup>
 </UserControl>

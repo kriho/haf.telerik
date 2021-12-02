@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
              xmlns:haf="http://www.hornung.dev/xaml/presentation">
-    <haf:HeaderedFormGroup Header="{Binding DisplayName}">
+    <haf:HeaderedFormGroup Header="{Binding DisplayName}" BorderBrush="{x:Null}">
         <telerik:RadMaskedTextInput Value="{Binding Value, Mode=TwoWay}" Mask="{Binding Mask}" TextMode="MaskedText" InputBehavior="Replace" UpdateValueEvent="PropertyChanged"/>
     </haf:HeaderedFormGroup>
 </UserControl>
