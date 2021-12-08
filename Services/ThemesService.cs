@@ -63,6 +63,7 @@ namespace HAF {
         if (property == null || property == "ActionColor") {
           Telerik.Windows.Controls.Office2016Palette.Palette.AccentFocusedColor = this.ActiveTheme.ActionColor;
           Telerik.Windows.Controls.Office2016Palette.Palette.AccentMouseOverColor = this.ActiveTheme.ActionColor;
+          Telerik.Windows.Controls.Office2016Palette.Palette.PressedColor = this.ActiveTheme.ActionColor;
         }
         if (property == null || property == "ControlColor") {
           Telerik.Windows.Controls.Office2016Palette.Palette.MainColor = this.ActiveTheme.ControlColor;
@@ -87,7 +88,6 @@ namespace HAF {
         if (property == null || property == "StrongColor") {
           Telerik.Windows.Controls.Office2016Palette.Palette.IconColor = this.ActiveTheme.StrongColor;
           Telerik.Windows.Controls.Office2016Palette.Palette.BasicColor = this.ActiveTheme.StrongColor;
-          Telerik.Windows.Controls.Office2016Palette.Palette.PressedColor = this.ActiveTheme.StrongColor;
         }
       }
     }
