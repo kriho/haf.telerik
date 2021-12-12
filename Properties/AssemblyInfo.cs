@@ -57,3 +57,4 @@ using System.Windows.Markup;
 [assembly: XmlnsPrefix("http://www.hornung.dev/xaml/presentation", "haf")]
 [assembly: XmlnsDefinition("http://www.hornung.dev/xaml/presentation", "HAF")]
 [assembly: XmlnsDefinition("http://www.hornung.dev/xaml/presentation", "HAF.Behaviors")]
+[assembly: XmlnsDefinition("http://www.hornung.dev/xaml/presentation", "HAF.Controls")]
