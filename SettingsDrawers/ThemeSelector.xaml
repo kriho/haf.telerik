@@ -22,7 +22,7 @@
             </StackPanel>
         </DataTemplate>
     </UserControl.Resources>
-    <haf:HeaderedFormGroup Header="{haf:Localize Theme}" BorderBrush="{x:Null}">
+    <haf:HeaderedFormGroup Header="{haf:Localize Theme}">
         <telerik:RadComboBox ItemsSource="{Binding AvailableThemes}" SelectedItem="{Binding ActiveTheme}" IsEnabled="{Binding CanChangeTheme.Value}" ItemTemplate="{StaticResource themeTemplate}" SelectionBoxTemplate="{StaticResource themeTemplate}" IsMouseWheelEnabled="False"/>
     </haf:HeaderedFormGroup>
 </UserControl>

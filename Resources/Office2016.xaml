@@ -62,6 +62,17 @@
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Foreground" Value="{DynamicResource ThemeBackgroundBrush}"/>
+                <Setter Property="TextElement.Foreground" Value="{DynamicResource ThemeBackgroundBrush}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    
+    <Style TargetType="telerik:RadSplitButton" BasedOn="{StaticResource RadSplitButtonStyle}">
+        <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisualStyle}"/>
+        <Setter Property="Foreground" Value="{DynamicResource ThemeTextBrush}"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="{DynamicResource ThemeBackgroundBrush}"/>
             </Trigger>
         </Style.Triggers>
     </Style>

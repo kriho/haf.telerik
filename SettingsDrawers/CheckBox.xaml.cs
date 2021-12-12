@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -21,6 +22,17 @@ namespace HAF.SettingsDrawers {
   public partial class CheckBox : UserControl, ISettingsDrawer {
     public CheckBox() {
       InitializeComponent();
+    }
+
+    public CheckBox(string text, object source, string path, string description = null): this() {
+      this.nameRun.Text = text;
+      this.descriptionTextBlock.Text = description;
+      // set IsChecked binding
+      var isCheckedBinding = new Binding(path) {
+        Source = source,
+        Mode = BindingMode.TwoWay,
+      };
+      BindingOperations.SetBinding(this.checkBox, ToggleButton.IsCheckedProperty, isCheckedBinding);
     }
   }
 }

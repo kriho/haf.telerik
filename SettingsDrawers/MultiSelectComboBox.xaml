@@ -5,7 +5,7 @@
              xmlns:local="clr-namespace:HAF.Behaviors"
              xmlns:haf="http://www.hornung.dev/xaml/presentation"
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity">
-    <haf:HeaderedFormGroup x:Name="header" BorderBrush="{x:Null}">
+    <haf:HeaderedFormGroup x:Name="header">
         <telerik:RadComboBox AllowMultipleSelection="True" Name="control" MultipleSelectionSeparator="," IsMouseWheelEnabled="False">
             <i:Interaction.Behaviors>
                 <local:SelectedItemsBehavior x:Name="behavior"/>

@@ -4,8 +4,23 @@
              xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
              xmlns:haf="http://www.hornung.dev/xaml/presentation">
     <haf:FormGroup>
-        <CheckBox IsChecked="{Binding Value, Mode=TwoWay}" Padding="5,0,0,0">
-            <TextBlock Text="{Binding DisplayName}" TextWrapping="Wrap"/>
-        </CheckBox>
+        <StackPanel>
+            <CheckBox x:Name="checkBox" IsChecked="{Binding Setting.Value, Mode=TwoWay}" Padding="5,0,0,0" BorderThickness="1">
+                <TextBlock TextWrapping="Wrap">
+                    <Run x:Name="nameRun" Text="{Binding Setting.DisplayName, Mode=OneWay}"/>
+                    <InlineUIContainer BaselineAlignment="Center">
+                        <Border Style="{StaticResource BadgeBorder}" Margin="0,3,0,0" VerticalAlignment="Center" Visibility="{Binding Owner, Converter={haf:IsNullToVisibilityConverter Inverted=True}}">
+                            <Border.ToolTip>
+                                <TextBlock>
+                                    This is not a global setting. It is stored in the <Run Text="{Binding Owner.Scope, Mode=OneWay}" Foreground="{DynamicResource ThemeAccentBrush}"/> scope.
+                                </TextBlock>        
+                            </Border.ToolTip>
+                            <TextBlock Text="{Binding Owner.Scope, Mode=OneWay}" FontSize="10"/>
+                        </Border>
+                    </InlineUIContainer>
+                </TextBlock>
+            </CheckBox>
+            <TextBlock x:Name="descriptionTextBlock" Text="{Binding Setting.Description}" Foreground="{DynamicResource ThemeSecondaryBrush}" TextWrapping="Wrap" Visibility="{Binding Setting.Description, Converter={haf:StringExpressionToVisibilityConverter Inverted=True}}"/>
+        </StackPanel>
     </haf:FormGroup>
 </UserControl>
