@@ -71,7 +71,11 @@
     <Compile Include="Behaviours\CloseDropDown.cs" />
     <Compile Include="Behaviours\DropDownFocus.cs" />
     <Compile Include="Behaviours\EscapeFocus.cs" />
+    <Compile Include="Behaviours\SelectionCommand.cs" />
     <Compile Include="Behaviours\SubmitButton.cs" />
+    <Compile Include="Controls\PixelPerfectRadPaneGroup.cs" />
+    <Compile Include="Controls\PixelPerfectRadSplitContainer.cs" />
+    <Compile Include="Controls\PixelPerfectRadPane.cs" />
     <Compile Include="Services\DockingWindowService.cs" />
     <Compile Include="Services\ThemesService.cs" />
     <Compile Include="SettingsDrawers\NumericUpDown.xaml.cs">

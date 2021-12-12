@@ -11,7 +11,7 @@ using System.Windows.Interactivity;
 using Telerik.Windows.Controls;
 
 namespace HAF.Behaviors {
-  public class SubmitButton: Behavior<TextBoxBase> {
+  public class SubmitButton: Behavior<Control> {
     public static readonly DependencyProperty KeyProperty = DependencyProperty.Register("Key", typeof(Key), typeof(SubmitButton), new PropertyMetadata(Key.Enter));
     public Key Key {
       get { return (Key)this.GetValue(SubmitButton.KeyProperty); }

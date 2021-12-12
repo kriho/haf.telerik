@@ -10,7 +10,7 @@ using System.Windows.Interactivity;
 using Telerik.Windows.Controls;
 using Telerik.Windows.Data;
 
-namespace HAF {
+namespace HAF.Behaviors {
   public class SelectedItemsBehavior : Behavior<RadComboBox> {
     public static readonly DependencyProperty SelectedItemsProperty = DependencyProperty.Register("SelectedItems", typeof(INotifyCollectionChanged), typeof(SelectedItemsBehavior), new PropertyMetadata(OnSelectedItemsPropertyChanged));
     public INotifyCollectionChanged SelectedItems {
