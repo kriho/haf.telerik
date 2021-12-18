@@ -96,6 +96,9 @@
     <Compile Include="SettingsDrawers\CheckBox.xaml.cs">
       <DependentUpon>CheckBox.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SettingsDrawers\Updates.xaml.cs">
+      <DependentUpon>Updates.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SettingsDrawers\ThemeSelector.xaml.cs">
       <DependentUpon>ThemeSelector.xaml</DependentUpon>
     </Compile>
@@ -133,6 +136,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Compile Include="Behaviours\SelectedItemsBehavior.cs" />
+    <Page Include="SettingsDrawers\Updates.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="SettingsDrawers\ThemeSelector.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

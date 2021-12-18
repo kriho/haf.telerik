@@ -4,7 +4,6 @@
                     xmlns:controls="clr-namespace:HAF.Controls"
                     xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation">
 
-
     <Style TargetType="ScrollViewer" BasedOn="{StaticResource ScrollViewerStyle}">
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Margin" Value="0"/>
@@ -20,7 +19,7 @@
         <Setter Property="ContentTemplate">
             <Setter.Value>
                 <DataTemplate>
-                    <ContentPresenter Content="{Binding}" Margin="0"/>
+                    <ContentPresenter Content="{Binding}" Margin="0,-1,0,0"/>
                 </DataTemplate>
             </Setter.Value>
         </Setter>
@@ -40,7 +39,7 @@
     <Style x:Key="TopToolBar" TargetType="telerik:RadToolBar" BasedOn="{StaticResource RadToolBarStyle}">
         <Setter Property="Margin" Value="0"/>
         <Setter Property="BorderThickness" Value="0,0,0,1"/>
-        <Setter Property="Padding" Value="0,-1,0,1"/>
+        <Setter Property="Padding" Value="0,0,0,1"/>
         <Setter Property="GripVisibility" Value="Collapsed"/>
     </Style>
 
@@ -76,6 +75,18 @@
             </Trigger>
         </Style.Triggers>
     </Style>
+    
+    <Style TargetType="telerik:RadToggleButton" BasedOn="{StaticResource RadToggleButtonStyle}">
+        <Setter Property="Foreground" Value="{DynamicResource ThemeTextBrush}"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="{DynamicResource ThemeBackgroundBrush}"/>
+            </Trigger>
+            <Trigger Property="IsChecked" Value="True">
+                <Setter Property="Foreground" Value="{DynamicResource ThemeBackgroundBrush}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
 
     <Style TargetType="TextBlock">
         <Setter Property="LineStackingStrategy" Value="BlockLineHeight"/>
@@ -85,18 +96,11 @@
         <Setter Property="HasDocumentHost" Value="False"/>
         <Setter Property="SnapsToDevicePixels" Value="True"/>
         <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="UseLayoutRounding" Value="True"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
     </Style>
 
     <Style TargetType="{x:Type telerik:RadExpander}" BasedOn="{StaticResource RadExpanderStyle}">
         <Setter Property="telerik:AnimationManager.IsAnimationEnabled" Value="False"/>
-    </Style>
-
-    <Style TargetType="controls:PixelPerfectRadPane" BasedOn="{StaticResource RadPaneStyle}">
-    </Style>
-    
-    <Style TargetType="controls:PixelPerfectRadPaneGroup" BasedOn="{StaticResource RadPaneGroupStyle}">
-    </Style>
-
-    <Style TargetType="controls:PixelPerfectRadSplitContainer" BasedOn="{StaticResource RadSplitContainerStyle}">
     </Style>
 </ResourceDictionary>
