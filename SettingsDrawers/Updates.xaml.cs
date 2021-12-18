@@ -15,10 +15,10 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace HAF.SettingsDrawers {
-  public partial class ThemeSelector: UserControl, ISettingsDrawer {
-    public ThemeSelector(IThemesService themesService) {
+  public partial class Updates : UserControl, ISettingsDrawer {
+    public Updates(IUpdatesService updatesService) {
       InitializeComponent();
-      this.DataContext = themesService;
+      this.DataContext = updatesService;
     }
   }
 }
