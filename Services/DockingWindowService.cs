@@ -50,6 +50,9 @@ namespace HAF {
     public void ShowPane(string name, Type viewType, bool canUserClose) {
       var existingPane = this.docking.Panes.FirstOrDefault(p => p.Header.ToString() == name);
       if (existingPane != null) {
+        if(existingPane.Content == null) {
+          existingPane.Content = Activator.CreateInstance(viewType);
+        }
         existingPane.IsHidden = false;
         existingPane.IsActive = true;
       } else {
