@@ -9,6 +9,10 @@
         <Setter Property="Margin" Value="0"/>
     </Style>
 
+    <Style TargetType="telerik:RadListBoxItem" BasedOn="{StaticResource RadListBoxItemStyle}">
+        <Setter Property="Padding" Value="3,1"/>
+    </Style>
+
     <Style TargetType="telerik:RadPane" BasedOn="{StaticResource RadPaneStyle}">
         <Setter Property="ContextMenuTemplate" Value="{x:Null}"/>
         <Setter Property="CanUserClose" Value="False"/>
@@ -35,6 +39,36 @@
     <Style TargetType="telerik:PaneHeader" BasedOn="{StaticResource PaneHeaderStyle}">
         <Setter Property="BorderThickness" Value="0"/>
     </Style>
+    
+    <Style x:Key="DialogWindow" TargetType="telerik:RadWindow" BasedOn="{StaticResource RadWindowStyle}">
+        <Setter Property="HideMinimizeButton" Value="True"/>
+        <Setter Property="HideMaximizeButton" Value="True"/>
+        <Setter Property="IsTopmost" Value="True"/>
+        <Setter Property="WindowStartupLocation" Value="CenterOwner"/>
+    </Style>
+
+    <Style x:Key="ListActionButton" TargetType="haf:GeometryButton">
+        <Setter Property="DockPanel.Dock" Value="Right"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="Width" Value="24"/>
+        <Setter Property="BorderThickness" Value="0"/>
+    </Style>
+
+    <Style x:Key="DropDownItemsControl" TargetType="ItemsControl">
+        <Setter Property="Padding" Value="3,3,3,0"/>
+        <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}"/>
+    </Style>
+    
+    <Style x:Key="TextButton" TargetType="telerik:RadButton" BasedOn="{StaticResource RadButtonStyle}">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Padding" Value="3,0"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Margin" Value="0"/>
+    </Style>
+
+    <Style TargetType="telerik:RadDropDownButton" BasedOn="{StaticResource RadDropDownButtonStyle}">
+        <Setter Property="CloseOnEscape" Value="True"/>
+    </Style>
 
     <Style x:Key="TopToolBar" TargetType="telerik:RadToolBar" BasedOn="{StaticResource RadToolBarStyle}">
         <Setter Property="Margin" Value="0"/>
@@ -57,6 +91,17 @@
 
     <Style TargetType="telerik:RadButton" BasedOn="{StaticResource RadButtonStyle}">
         <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisualStyle}"/>
+        <Setter Property="Foreground" Value="{DynamicResource ThemeTextBrush}"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="{DynamicResource ThemeBackgroundBrush}"/>
+                <Setter Property="TextElement.Foreground" Value="{DynamicResource ThemeBackgroundBrush}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style TargetType="telerik:RadDropDownButton" BasedOn="{StaticResource RadDropDownButtonStyle}">
+        <Setter Property="CloseOnEscape" Value="True"/>
         <Setter Property="Foreground" Value="{DynamicResource ThemeTextBrush}"/>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
@@ -103,4 +148,182 @@
     <Style TargetType="{x:Type telerik:RadExpander}" BasedOn="{StaticResource RadExpanderStyle}">
         <Setter Property="telerik:AnimationManager.IsAnimationEnabled" Value="False"/>
     </Style>
+
+    <Style x:Key="BadgeBorder" TargetType="Border">
+        <Setter Property="Margin" Value="0,0,3,0"/>
+        <Setter Property="CornerRadius" Value="2"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Padding" Value="3,1"/>
+        <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}"/>
+    </Style>
+
+    <Style x:Key="WidgetBorder" TargetType="Border">
+        <Setter Property="Margin" Value="1"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource ThemeStrongBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource ThemeControlBrush}"/>
+    </Style>
+
+    <Style x:Key="PaneScrollViewer" TargetType="ScrollViewer">
+        <Setter Property="Padding" Value="1"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Margin" Value="0"/>
+        <Setter Property="HorizontalScrollBarVisibility" Value="Disabled"/>
+        <Setter Property="VerticalScrollBarVisibility" Value="Auto"/>
+    </Style>
+
+    <Style x:Key="PaneRadTabControl" TargetType="telerik:RadTabControl" BasedOn="{StaticResource RadTabControlStyle}">
+        <Setter Property="Background" Value="{DynamicResource ThemeControlBrush}"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="Margin" Value="-1,-5,-1,0"/>
+    </Style>
+
+    <Style x:Key="ReadOnlyTextBox" TargetType="TextBox">
+        <Setter Property="TextWrapping" Value="Wrap"/>
+        <Setter Property="IsReadOnly" Value="True"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Padding" Value="3,2"/>
+        <Setter Property="Cursor" Value="Arrow"/>
+        <Setter Property="Foreground" Value="{DynamicResource ThemeSecondaryBrush}"/>
+    </Style>
+
+    <Style x:Key="SlimList" TargetType="telerik:RadListBox" BasedOn="{StaticResource RadListBoxStyle}">
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="ItemContainerStyle">
+            <Setter.Value>
+                <Style TargetType="telerik:RadListBoxItem" BasedOn="{StaticResource RadListBoxItemStyle}">
+                    <Setter Property="Padding" Value="0"/>
+                    <Setter Property="BorderThickness" Value="0"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="telerik:RadListBoxItem">
+                                <Border x:Name="border" Background="Transparent">
+                                    <ContentPresenter/>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter TargetName="border" Property="Background" Value="{DynamicResource ThemeBackgroundBrush}"/>
+                                    </Trigger>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter TargetName="border" Property="Background" Value="{DynamicResource ThemeLightBrush}"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="SlimAlternatingList" TargetType="telerik:RadListBox" BasedOn="{StaticResource RadListBoxStyle}">
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="AlternationCount" Value="2"/>
+        <Setter Property="ItemContainerStyle">
+            <Setter.Value>
+                <Style TargetType="telerik:RadListBoxItem" BasedOn="{StaticResource RadListBoxItemStyle}">
+                    <Setter Property="Padding" Value="0"/>
+                    <Setter Property="BorderThickness" Value="0"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="telerik:RadListBoxItem">
+                                <Border x:Name="border" Background="Transparent">
+                                    <ContentPresenter/>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="ItemsControl.AlternationIndex" Value="1">
+                                        <Setter Property="Background" TargetName="border">
+                                            <Setter.Value>
+                                                <SolidColorBrush Color="{DynamicResource ThemeBackgroundColor}" Opacity="1"/>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Trigger>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter TargetName="border" Property="Background" Value="{DynamicResource ThemeLightBrush}"/>
+                                    </Trigger>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter TargetName="border" Property="Background" Value="{DynamicResource ThemeActionBrush}"/>
+                                        <Setter TargetName="border" Property="TextElement.Foreground" Value="{DynamicResource ThemeBackgroundBrush}"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="SlimTree" TargetType="telerik:RadTreeView" BasedOn="{StaticResource RadTreeViewStyle}">
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="ItemContainerStyle">
+            <Setter.Value>
+                <Style TargetType="telerik:RadTreeViewItem" BasedOn="{StaticResource RadTreeViewItemStyle}">
+                    <Setter Property="Padding" Value="0"/>
+                    <Setter Property="BorderThickness" Value="0"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="telerik:RadTreeViewItem">
+                                <Border x:Name="border" Background="Transparent">
+                                    <ContentPresenter/>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter TargetName="border" Property="Background" Value="{DynamicResource ThemeBackgroundBrush}"/>
+                                    </Trigger>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter TargetName="border" Property="Background" Value="{DynamicResource ThemeLightBrush}"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="SlimConfirm" TargetType="telerik:RadConfirm" BasedOn="{StaticResource RadConfirmStyle}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="telerik:RadConfirm">
+                    <DockPanel x:Name="LayoutRoot" LastChildFill="True" FocusManager.FocusedElement="{Binding ElementName=OK}">
+                        <DockPanel.InputBindings>
+                            <KeyBinding Key="Escape" Command="{x:Static telerik:WindowCommands.Cancel}"/>
+                        </DockPanel.InputBindings>
+                        <telerik:RadButton x:Name="OK"
+                                Command="{x:Static telerik:WindowCommands.Confirm}"
+                                telerik:RadWindow.ResponseButton="Accept"
+                                MinWidth="70"
+                                IsTabStop="True"
+                                TabIndex="0"
+                                telerik:LocalizationManager.ResourceKey="Ok"
+                                Margin="3,3,3,3"/>
+                        <telerik:RadButton x:Name="Cancel"
+                                Command="{x:Static telerik:WindowCommands.Cancel}"
+                                telerik:RadWindow.ResponseButton="Cancel"
+                                MinWidth="70"
+                                IsTabStop="True"
+                                TabIndex="0"
+                                telerik:LocalizationManager.ResourceKey="Cancel"
+                                Margin="0,3,3,3"/>
+                        <ScrollViewer IsTabStop="False" BorderThickness="0" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+                            <TextBlock Text="{TemplateBinding Content}" TextWrapping="Wrap" Margin="10"/>
+                        </ScrollViewer>
+                    </DockPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Foreground" Value="{telerik:Windows8Resource ResourceKey=MarkerBrush}"/>
+    </Style>
+
 </ResourceDictionary>
