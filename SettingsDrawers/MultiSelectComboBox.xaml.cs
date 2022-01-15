@@ -40,7 +40,7 @@ namespace HAF.SettingsDrawers {
       }
     }
 
-    public string DisplayName => this.header.Header;
+    public string DisplayName => this.header.Header.ToString();
 
     public string Description => null;
   }
