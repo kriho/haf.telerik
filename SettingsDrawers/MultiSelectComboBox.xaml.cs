@@ -39,5 +39,9 @@ namespace HAF.SettingsDrawers {
         this.control.MultipleSelectionSeparator = selectionSeparator.Value;
       }
     }
+
+    public string DisplayName => this.header.Header;
+
+    public string Description => null;
   }
 }

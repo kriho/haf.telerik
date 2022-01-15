@@ -20,5 +20,9 @@ namespace HAF.SettingsDrawers {
       InitializeComponent();
       this.DataContext = themesService;
     }
+
+    public string DisplayName => "Theme";
+
+    public string Description => null;
   }
 }
