@@ -27,6 +27,7 @@ namespace HAF.SettingsDrawers {
     public CheckBox(string text, object source, string path, string description = null): this() {
       this.nameRun.Text = text;
       this.descriptionTextBlock.Text = description;
+      this.descriptionTextBlock.Visibility = description != null ? Visibility.Visible : Visibility.Collapsed;
       // set IsChecked binding
       var isCheckedBinding = new Binding(path) {
         Source = source,
@@ -34,5 +35,9 @@ namespace HAF.SettingsDrawers {
       };
       BindingOperations.SetBinding(this.checkBox, ToggleButton.IsCheckedProperty, isCheckedBinding);
     }
+
+    public string DisplayName => this.nameRun.Text;
+
+    public string Description => this.descriptionTextBlock.Text;
   }
 }

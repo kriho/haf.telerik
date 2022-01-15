@@ -22,5 +22,9 @@ namespace HAF.SettingsDrawers {
     public NumericUpDown() {
       InitializeComponent();
     }
+
+    public string DisplayName => null;
+
+    public string Description => null;
   }
 }

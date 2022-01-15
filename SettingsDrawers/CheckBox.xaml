@@ -13,7 +13,7 @@
                             <Border.ToolTip>
                                 <TextBlock>
                                     This is not a global setting. It is stored in the <Run Text="{Binding Owner.Scope, Mode=OneWay}" Foreground="{DynamicResource ThemeAccentBrush}"/> scope.
-                                </TextBlock>        
+                                </TextBlock>
                             </Border.ToolTip>
                             <TextBlock Text="{Binding Owner.Scope, Mode=OneWay}" FontSize="10"/>
                         </Border>

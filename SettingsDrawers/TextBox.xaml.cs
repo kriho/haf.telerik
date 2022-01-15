@@ -22,5 +22,9 @@ namespace HAF.SettingsDrawers {
     public TextBox() {
       InitializeComponent();
     }
+
+    public string DisplayName => null;
+
+    public string Description => null;
   }
 }

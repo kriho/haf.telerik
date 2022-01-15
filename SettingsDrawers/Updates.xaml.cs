@@ -20,5 +20,9 @@ namespace HAF.SettingsDrawers {
       InitializeComponent();
       this.DataContext = updatesService;
     }
+
+    public string DisplayName => "Updates";
+
+    public string Description => null;
   }
 }
