@@ -4,6 +4,14 @@
                     xmlns:controls="clr-namespace:HAF.Controls"
                     xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation">
 
+    <ControlTemplate x:Key="DefaultValidationTemplate">
+        <Grid>
+            <AdornedElementPlaceholder/>
+            <Rectangle Fill="{DynamicResource ThemeErrorForegroundBrush}" Margin="3" Opacity="0.1" IsHitTestVisible="False"/>
+            <Path Data="M0,0 L13,13 13,0" Fill="{DynamicResource ThemeErrorForegroundBrush}" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+        </Grid>
+    </ControlTemplate>
+
     <Style TargetType="ScrollViewer" BasedOn="{StaticResource ScrollViewerStyle}">
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Margin" Value="0"/>
@@ -12,18 +20,25 @@
     <Style TargetType="telerik:RadListBoxItem" BasedOn="{StaticResource RadListBoxItemStyle}">
         <Setter Property="Padding" Value="3,1"/>
     </Style>
+    
+    <Style TargetType="telerik:RadWatermarkTextBox" BasedOn="{StaticResource RadWatermarkTextBoxStyle}">
+        <Setter Property="Validation.ErrorTemplate" Value="{StaticResource DefaultValidationTemplate}"/>
+    </Style>
+    
+    <Style TargetType="telerik:RadComboBox" BasedOn="{StaticResource RadComboBoxStyle}">
+        <Setter Property="Validation.ErrorTemplate" Value="{StaticResource DefaultValidationTemplate}"/>
+    </Style>
 
     <Style TargetType="telerik:RadPane" BasedOn="{StaticResource RadPaneStyle}">
         <Setter Property="ContextMenuTemplate" Value="{x:Null}"/>
         <Setter Property="CanUserClose" Value="False"/>
         <Setter Property="CanUserPin" Value="False"/>
-        <Setter Property="Padding" Value="5,3"/>
-        <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="UseLayoutRounding" Value="True"/>
         <Setter Property="ContentTemplate">
             <Setter.Value>
                 <DataTemplate>
-                    <ContentPresenter Content="{Binding}" Margin="0,-1,0,0"/>
+                    <ContentPresenter Content="{Binding}" Margin="0,-1,1,0"/>
                 </DataTemplate>
             </Setter.Value>
         </Setter>
@@ -36,10 +51,40 @@
         </Setter>
     </Style>
 
+    <Style TargetType="telerik:RadDocumentPane" BasedOn="{StaticResource RadPaneStyle}">
+        <Setter Property="ContextMenuTemplate" Value="{x:Null}"/>
+        <Setter Property="CanUserPin" Value="False"/>
+        <Setter Property="ContentTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <ContentPresenter Content="{Binding}" Margin="-4,-4,-4,-4"/>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="TitleTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <TextBlock Text="{Binding}" FontSize="15" Margin="0,2" Foreground="{DynamicResource ThemeControlBrush}"/>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type telerik:RadDocking}" BasedOn="{StaticResource RadDockingStyle}">
+        <Setter Property="HasDocumentHost" Value="False"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="UseLayoutRounding" Value="True"/>
+    </Style>
+
     <Style TargetType="telerik:PaneHeader" BasedOn="{StaticResource PaneHeaderStyle}">
         <Setter Property="BorderThickness" Value="0"/>
     </Style>
-    
+
+    <Style TargetType="telerik:RadPaneGroup" BasedOn="{StaticResource RadPaneGroupStyle}">
+        <Setter Property="Focusable" Value="False"/>
+    </Style>
+
     <Style x:Key="DialogWindow" TargetType="telerik:RadWindow" BasedOn="{StaticResource RadWindowStyle}">
         <Setter Property="HideMinimizeButton" Value="True"/>
         <Setter Property="HideMaximizeButton" Value="True"/>
@@ -144,13 +189,6 @@
 
     <Style TargetType="TextBlock">
         <Setter Property="LineStackingStrategy" Value="BlockLineHeight"/>
-    </Style>
-
-    <Style TargetType="{x:Type telerik:RadDocking}" BasedOn="{StaticResource RadDockingStyle}">
-        <Setter Property="HasDocumentHost" Value="False"/>
-        <Setter Property="SnapsToDevicePixels" Value="True"/>
-        <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="UseLayoutRounding" Value="True"/>
     </Style>
 
     <Style TargetType="{x:Type telerik:RadExpander}" BasedOn="{StaticResource RadExpanderStyle}">
