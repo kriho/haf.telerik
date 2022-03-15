@@ -203,14 +203,6 @@
         <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}"/>
     </Style>
 
-    <Style x:Key="WidgetBorder" TargetType="Border">
-        <Setter Property="Margin" Value="1"/>
-        <Setter Property="Padding" Value="0"/>
-        <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource ThemeStrongBrush}"/>
-        <Setter Property="Background" Value="{DynamicResource ThemeControlBrush}"/>
-    </Style>
-
     <Style x:Key="PaneScrollViewer" TargetType="ScrollViewer">
         <Setter Property="Padding" Value="1"/>
         <Setter Property="BorderThickness" Value="0"/>

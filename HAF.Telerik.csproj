@@ -45,6 +45,9 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="Telerik.Windows.Controls.Chart">
+      <HintPath>..\lib\RCWPF\2017.3.1018.45.NoXaml\Telerik.Windows.Controls.Chart.dll</HintPath>
+    </Reference>
     <Reference Include="Telerik.Windows.Controls">
       <HintPath>..\lib\RCWPF\2017.3.1018.45.NoXaml\Telerik.Windows.Controls.dll</HintPath>
     </Reference>
@@ -72,6 +75,7 @@
     <Compile Include="Behaviours\DropDownFocus.cs" />
     <Compile Include="Behaviours\EscapeFocus.cs" />
     <Compile Include="Behaviours\SelectionCommand.cs" />
+    <Compile Include="Behaviours\EnablePanAndZoom.cs" />
     <Compile Include="Behaviours\SubmitButton.cs" />
     <Compile Include="Controls\PixelPerfectRadPaneGroup.cs" />
     <Compile Include="Controls\PixelPerfectRadSplitContainer.cs" />
