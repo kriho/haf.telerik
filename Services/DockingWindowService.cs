@@ -12,7 +12,6 @@ using Telerik.Windows.Controls;
 namespace HAF {
   [Export(typeof(IDockingWindowService)), Export(typeof(IWindowService)), PartCreationPolicy(CreationPolicy.Shared)]
   public class DockingWindowService : WindowService, IDockingWindowService {
-
     private RadDocking docking;
     public object Docking {
       get {
@@ -66,7 +65,7 @@ namespace HAF {
           Telerik.Windows.Controls.RadDocking.SetSerializationTag(pane, name);
           this.docking.ActivePane.PaneGroup.Items.Add(pane);
         } else {
-          throw new Exception("select a pane to add new panes to the same pane group");
+          Log.Error("select a pane to add new panes to the same pane group");
         }
       }
     }
