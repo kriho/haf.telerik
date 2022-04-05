@@ -4,10 +4,12 @@
              xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
              xmlns:local="clr-namespace:HAF.SettingsDrawers"
              xmlns:haf="http://www.hornung.dev/xaml/presentation">
-    <haf:HeaderedFormGroup>
-        <haf:HeaderedFormGroup.Header>
-            <local:Header/>
-        </haf:HeaderedFormGroup.Header>
-        <telerik:RadMaskedTextInput Value="{Binding Setting.Value, Mode=TwoWay}" Mask="{Binding Setting.Mask}" TextMode="MaskedText" InputBehavior="Replace" UpdateValueEvent="PropertyChanged"/>
-    </haf:HeaderedFormGroup>
+    <haf:FormGroup Header="{Binding}" Description="{Binding Setting.Description}">
+        <haf:FormGroup.HeaderTemplate>
+            <DataTemplate>
+                <local:Header/>
+            </DataTemplate>
+        </haf:FormGroup.HeaderTemplate>
+        <telerik:RadMaskedTextInput Value="{Binding Setting.Value, Mode=TwoWay}" Mask="{Binding Setting.Mask}" Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=haf:FormGroup}}" TextMode="MaskedText" InputBehavior="Replace" UpdateValueEvent="PropertyChanged"/>
+    </haf:FormGroup>
 </UserControl>

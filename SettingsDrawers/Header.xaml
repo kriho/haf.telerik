@@ -4,20 +4,17 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:haf="http://www.hornung.dev/xaml/presentation">
-    <StackPanel>
-        <TextBlock>
-            <Run Text="{Binding Setting.DisplayName}"/>
-            <InlineUIContainer BaselineAlignment="Center">
-                <Border Style="{StaticResource BadgeBorder}" Margin="0,3,0,0" VerticalAlignment="Center" Visibility="{Binding Owner, Converter={haf:IsNullToVisibilityConverter Inverted=True}}">
-                    <Border.ToolTip>
-                        <TextBlock>
-                            This is not a global setting. It is stored in the scope <Run Text="{Binding Owner.Scope, Mode=OneWay}" Foreground="{DynamicResource ThemeAccentBrush}"/>.
-                        </TextBlock>
-                    </Border.ToolTip>
-                    <TextBlock Text="{Binding Owner.Scope, Mode=OneWay}" FontSize="10"/>
-                </Border>
-            </InlineUIContainer>
-        </TextBlock>
-        <TextBlock Text="{Binding Setting.Description}" Foreground="{DynamicResource ThemeSecondaryBrush}" TextWrapping="Wrap" Visibility="{Binding Setting.Description, Converter={haf:IsNullToVisibilityConverter Inverted=True}}"/>
-    </StackPanel>
+    <TextBlock Margin="5,0">
+        <Run Text="{Binding Setting.DisplayName}"/>
+        <InlineUIContainer BaselineAlignment="Center">
+            <Border Style="{StaticResource BadgeBorder}" Margin="0,3,0,0" VerticalAlignment="Center" Visibility="{Binding Owner, Converter={haf:IsNullToVisibilityConverter Inverted=True}}">
+                <Border.ToolTip>
+                    <TextBlock>
+                        This is not a global setting. It is stored in the scope <Run Text="{Binding Owner.Scope, Mode=OneWay}" Foreground="{DynamicResource ThemeAccentBrush}"/>.
+                    </TextBlock>
+                </Border.ToolTip>
+                <TextBlock Text="{Binding Owner.Scope, Mode=OneWay}" FontSize="10"/>
+            </Border>
+        </InlineUIContainer>
+    </TextBlock>
 </UserControl>

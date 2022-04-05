@@ -4,10 +4,12 @@
              xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
              xmlns:local="clr-namespace:HAF.SettingsDrawers"
              xmlns:haf="http://www.hornung.dev/xaml/presentation">
-    <haf:HeaderedFormGroup>
-        <haf:HeaderedFormGroup.Header>
-            <local:Header/>
-        </haf:HeaderedFormGroup.Header>
+    <haf:FormGroup Header="{Binding}" Description="{Binding Setting.Description}">
+        <haf:FormGroup.HeaderTemplate>
+            <DataTemplate>
+                <local:Header/>
+            </DataTemplate>
+        </haf:FormGroup.HeaderTemplate>
         <telerik:RadWatermarkTextBox Text="{Binding Setting.Value, Mode=TwoWay}"/>
-    </haf:HeaderedFormGroup>
+    </haf:FormGroup>
 </UserControl>

@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
              xmlns:haf="http://www.hornung.dev/xaml/presentation">
-    <haf:HeaderedFormGroup Header="{haf:Localize Updates}">
+    <haf:FormRow Header="{haf:Localize Updates}">
         <Grid>
             <Border BorderThickness="1" BorderBrush="{DynamicResource ThemeStrongBrush}" Padding="3" Visibility="{Binding MayUpdate.Value, Converter={haf:BooleanToVisibilityConverter Inverted=True}}">
                 <TextBlock Text="updates are not avaliable" Foreground="{DynamicResource ThemeSecondaryBrush}"/>
@@ -29,5 +29,5 @@
                 </Grid>
             </Grid>
         </Grid>
-    </haf:HeaderedFormGroup>
+    </haf:FormRow>
 </UserControl>

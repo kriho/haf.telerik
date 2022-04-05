@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
              xmlns:haf="http://www.hornung.dev/xaml/presentation">
-    <haf:FormGroup>
+    <haf:FormEntry>
         <StackPanel>
             <CheckBox x:Name="checkBox" IsChecked="{Binding Setting.Value, Mode=TwoWay}" Padding="5,0,0,0" BorderThickness="1">
                 <TextBlock TextWrapping="Wrap">
@@ -20,7 +20,7 @@
                     </InlineUIContainer>
                 </TextBlock>
             </CheckBox>
-            <TextBlock x:Name="descriptionTextBlock" Text="{Binding Setting.Description}" Foreground="{DynamicResource ThemeSecondaryBrush}" TextWrapping="Wrap" Visibility="{Binding Setting.Description, Converter={haf:StringExpressionToVisibilityConverter Inverted=True}}"/>
+            <TextBlock x:Name="descriptionTextBlock" Text="{Binding Setting.Description}" Foreground="{DynamicResource ThemeSecondaryBrush}" TextWrapping="Wrap" FontSize="13" Visibility="{Binding Setting.Description, Converter={haf:StringExpressionToVisibilityConverter Inverted=True}}"/>
         </StackPanel>
-    </haf:FormGroup>
+    </haf:FormEntry>
 </UserControl>
