@@ -1,7 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:haf="http://www.hornung.dev/xaml/presentation"
-                    xmlns:controls="clr-namespace:HAF.Controls"
                     xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation">
 
     <ControlTemplate x:Key="DefaultValidationTemplate">
@@ -184,20 +183,6 @@
         <Setter Property="CanUserPin" Value="False"/>
         <Setter Property="SnapsToDevicePixels" Value="True"/>
         <Setter Property="UseLayoutRounding" Value="True"/>
-        <Setter Property="ContentTemplate">
-            <Setter.Value>
-                <DataTemplate>
-                    <ContentPresenter Content="{Binding}" Margin="0,-1,0,1"/>
-                </DataTemplate>
-            </Setter.Value>
-        </Setter>
-        <Setter Property="TitleTemplate">
-            <Setter.Value>
-                <DataTemplate>
-                    <TextBlock Text="{Binding}" FontSize="15" Margin="0,2" Foreground="{DynamicResource ThemeControlBrush}"/>
-                </DataTemplate>
-            </Setter.Value>
-        </Setter>
     </Style>
 
     <Style TargetType="telerik:RadDocumentPane" BasedOn="{StaticResource RadPaneStyle}">
@@ -229,9 +214,88 @@
     <Style TargetType="telerik:PaneHeader" BasedOn="{StaticResource PaneHeaderStyle}">
         <Setter Property="BorderThickness" Value="0"/>
     </Style>
+    
+    <ControlTemplate x:Key="RadPaneGroupDefaultControlTemplate" TargetType="{x:Type telerik:RadPaneGroup}">
+        <Grid UseLayoutRounding="True" SnapsToDevicePixels="True">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Border x:Name="HeaderContainer" Grid.Row="1" Grid.Column="1">
+                <DockPanel Background="{DynamicResource ThemeAccentBrush}" Visibility="{Binding SelectedItem.PaneHeaderVisibility, RelativeSource={RelativeSource TemplatedParent}}">
+                    <telerik:RadButton Command="telerik:RadDockingCommands.Close" DockPanel.Dock="Right" Padding="3,0" BorderThickness="0" Background="Transparent" Visibility="{Binding SelectedPane.CanUserClose, RelativeSource={RelativeSource TemplatedParent}, Converter={haf:BooleanToVisibilityConverter}}">
+                        <haf:GeometryIcon Foreground="{DynamicResource ThemeControlBrush}" Geometry="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" DockPanel.Dock="Right"/>
+                    </telerik:RadButton>
+                    <haf:HelpButton DockPanel.Dock="Right" Padding="3,0" BorderThickness="0" Background="Transparent" CommandParameter="{Binding SelectedPane.(haf:Behavior.SupportUrl), RelativeSource={RelativeSource TemplatedParent}}" haf:Behavior.DisabledVisibility="Collapsed">
+                        <haf:HelpButton.ToolTip>
+                            <TextBlock>
+                                Show the online documentation that is available for this pane under
+                                <Run Text="{Binding SelectedPane.(haf:Behavior.SupportUrl), RelativeSource={RelativeSource TemplatedParent}, Mode=OneWay}" Foreground="{DynamicResource ThemeAccentBrush}"/>.
+                            </TextBlock>
+                        </haf:HelpButton.ToolTip>
+                        <haf:GeometryIcon Foreground="{DynamicResource ThemeControlBrush}" Geometry="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/>
+                    </haf:HelpButton>
+                    <TextBlock Text="{Binding SelectedPane.Header, RelativeSource={RelativeSource TemplatedParent}}" FontSize="15" Margin="5,2" Foreground="{DynamicResource ThemeControlBrush}"/>
+                </DockPanel>
+            </Border>
+            <Border Grid.Row="2" Background="Transparent" Grid.Column="1" BorderThickness="1,0,1,1" BorderBrush="{DynamicResource ThemeStrongBrush}"/>
+            <Border Grid.Row="2" Grid.Column="1" BorderThickness="1,0,1,1" BorderBrush="{DynamicResource ThemeAccentBrush}" Visibility="{Binding SelectedPane.IsActive, Converter={StaticResource BooleanToVisibilityConverter}, RelativeSource={RelativeSource TemplatedParent}}"/>
+            <Grid Grid.Row="2" Grid.Column="1">
+                <ContentPresenter Content="{TemplateBinding SelectedContent}" ContentTemplate="{TemplateBinding SelectedContentTemplate}" ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}" Margin="1,0,1,1"/>
+            </Grid>
+            <Border x:Name="ItemsContainer" Grid.Row="3" Grid.Column="1">
+                <ItemsPresenter x:Name="ItemsPresenterElement"/>
+            </Border>
+            <telerik:RadGridResizer x:Name="DockResizer" Placement="Left" ShowsPreview="true" Visibility="Collapsed"/>
+        </Grid>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsSingleItem" Value="True">
+                <Setter Property="Visibility" TargetName="ItemsPresenterElement" Value="Collapsed"/>
+            </Trigger>
+            <Trigger Property="IsPaneHeaderVisible" Value="false">
+                <Setter Property="Visibility" TargetName="HeaderContainer" Value="Collapsed"/>
+            </Trigger>
+            <Trigger Property="SplitterPosition" Value="Left">
+                <Setter Property="Visibility" TargetName="DockResizer" Value="Visible"/>
+                <Setter Property="Grid.RowSpan" TargetName="DockResizer" Value="4"/>
+                <Setter Property="Placement" TargetName="DockResizer" Value="Left"/>
+                <Setter Property="MinWidth" TargetName="DockResizer" Value="4"/>
+            </Trigger>
+            <Trigger Property="SplitterPosition" Value="Top">
+                <Setter Property="Visibility" TargetName="DockResizer" Value="Visible"/>
+                <Setter Property="Grid.ColumnSpan" TargetName="DockResizer" Value="2"/>
+                <Setter Property="Placement" TargetName="DockResizer" Value="Top"/>
+                <Setter Property="MinHeight" TargetName="DockResizer" Value="4"/>
+                <Setter Property="VerticalAlignment" TargetName="DockResizer" Value="Top"/>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
 
-    <Style TargetType="telerik:RadPaneGroup" BasedOn="{StaticResource RadPaneGroupStyle}">
-        <Setter Property="Focusable" Value="False"/>
+    <Style TargetType="{x:Type telerik:RadPaneGroup}" BasedOn="{StaticResource RadPaneGroupStyle}">
+        <Setter Property="Foreground" Value="{DynamicResource ThemeTextBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="VerticalAlignment" Value="Stretch"/>
+        <Setter Property="Align" Value="Left"/>
+        <Setter Property="TabStripPlacement" Value="Bottom"/>
+        <Setter Property="AllTabsEqualHeight" Value="true"/>
+        <Setter Property="BackgroundVisibility" Value="Visible"/>
+        <Setter Property="MinWidth" Value="15"/>
+        <Setter Property="MinHeight" Value="15"/>
+        <Setter Property="AllowDrop" Value="true"/>
+        <Setter Property="IsTabStop" Value="false"/>
+        <Setter Property="SnapsToDevicePixels" Value="true"/>
+        <Setter Property="Template" Value="{StaticResource RadPaneGroupDefaultControlTemplate}"/>
+        <Setter Property="BottomTemplate" Value="{StaticResource RadPaneGroupDefaultControlTemplate}"/>
+        <Setter Property="LeftTemplate" Value="{StaticResource RadPaneGroupDefaultControlTemplate}"/>
+        <Setter Property="RightTemplate" Value="{StaticResource RadPaneGroupDefaultControlTemplate}"/>
     </Style>
 
     <Style x:Key="DialogWindow" TargetType="telerik:RadWindow" BasedOn="{StaticResource RadWindowStyle}">
@@ -261,14 +325,16 @@
     </Style>
 
     <Style x:Key="TopToolBar" TargetType="telerik:RadToolBar" BasedOn="{StaticResource RadToolBarStyle}">
-        <Setter Property="Margin" Value="0"/>
+        <Setter Property="UseLayoutRounding" Value="True"/>
+        <Setter Property="Margin" Value="0,0,1,0"/>
         <Setter Property="BorderThickness" Value="0,0,0,1"/>
         <Setter Property="Padding" Value="0,0,0,2"/>
         <Setter Property="GripVisibility" Value="Collapsed"/>
     </Style>
 
     <Style x:Key="BottomToolBar" TargetType="telerik:RadToolBar" BasedOn="{StaticResource RadToolBarStyle}">
-        <Setter Property="Margin" Value="0"/>
+        <Setter Property="UseLayoutRounding" Value="True"/>
+        <Setter Property="Margin" Value="0,0,1,0"/>
         <Setter Property="BorderThickness" Value="0,1,0,0"/>
         <Setter Property="Padding" Value="0,1,0,0"/>
         <Setter Property="GripVisibility" Value="Collapsed"/>
@@ -373,6 +439,11 @@
         <Setter Property="Padding" Value="3,2"/>
         <Setter Property="Cursor" Value="Arrow"/>
         <Setter Property="Foreground" Value="{DynamicResource ThemeSecondaryBrush}"/>
+    </Style>
+
+    <Style TargetType="TextBox">
+        <Setter Property="Background" Value="{DynamicResource ThemeControlBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource ThemeTextBrush}"/>
     </Style>
 
     <Style x:Key="SlimList" TargetType="telerik:RadListBox" BasedOn="{StaticResource RadListBoxStyle}">
