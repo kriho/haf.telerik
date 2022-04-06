@@ -63,6 +63,7 @@ namespace HAF {
           Telerik.Windows.Controls.Office2016Palette.Palette.AccentFocusedColor = this.ActiveTheme.ActionColor;
           Telerik.Windows.Controls.Office2016Palette.Palette.AccentMouseOverColor = this.ActiveTheme.ActionColor;
           Telerik.Windows.Controls.Office2016Palette.Palette.PressedColor = this.ActiveTheme.ActionColor;
+          Telerik.Windows.Controls.Office2016Palette.Palette.AccentPressedColor = this.ActiveTheme.ActionColor;
         }
         if (property == null || property == "ControlColor") {
           Telerik.Windows.Controls.Office2016Palette.Palette.MainColor = this.ActiveTheme.ControlColor;
@@ -70,7 +71,7 @@ namespace HAF {
         if (property == null || property == "BackgroundColor") {
           Telerik.Windows.Controls.Office2016Palette.Palette.AlternativeColor = this.ActiveTheme.BackgroundColor;
           Telerik.Windows.Controls.Office2016Palette.Palette.MouseOverColor = this.ActiveTheme.BackgroundColor;
-          Telerik.Windows.Controls.Office2016Palette.Palette.MarkerInvertedColor = this.ActiveTheme.BackgroundColor;
+          Telerik.Windows.Controls.Office2016Palette.Palette.MarkerInvertedColor = this.ActiveTheme.BackgroundColor; // inverted text
         }
         if (property == null || property == "TextColor") {
           Telerik.Windows.Controls.Office2016Palette.Palette.MarkerColor = this.ActiveTheme.TextColor;
@@ -78,15 +79,16 @@ namespace HAF {
         if (property == null || property == "AccentColor") {
           Telerik.Windows.Controls.Office2016Palette.Palette.AccentColor = this.ActiveTheme.AccentColor;
           Telerik.Windows.Controls.Office2016Palette.Palette.ComplementaryColor = this.ActiveTheme.AccentColor;
-          Telerik.Windows.Controls.Office2016Palette.Palette.AccentPressedColor = this.ActiveTheme.AccentColor;
         }
         if (property == null || property == "LightColor") {
           Telerik.Windows.Controls.Office2016Palette.Palette.PrimaryColor = this.ActiveTheme.LightColor;
           Telerik.Windows.Controls.Office2016Palette.Palette.SelectedColor = this.ActiveTheme.LightColor;
         }
         if (property == null || property == "StrongColor") {
-          Telerik.Windows.Controls.Office2016Palette.Palette.IconColor = this.ActiveTheme.StrongColor;
           Telerik.Windows.Controls.Office2016Palette.Palette.BasicColor = this.ActiveTheme.StrongColor;
+        }
+        if (property == null || property == "SecondaryColor") {
+          Telerik.Windows.Controls.Office2016Palette.Palette.IconColor = this.ActiveTheme.SecondaryColor;
         }
       }
     }

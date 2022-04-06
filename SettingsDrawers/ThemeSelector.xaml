@@ -5,9 +5,8 @@
              xmlns:haf="http://www.hornung.dev/xaml/presentation">
     <UserControl.Resources>
         <DataTemplate x:Key="themeTemplate">
-            <StackPanel Orientation="Vertical">
-                <TextBlock Text="{Binding Name.Value}"/>
-                <StackPanel Orientation="Horizontal" Margin="0,3">
+            <DockPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,3" DockPanel.Dock="Right">
                     <Rectangle Width="18" Height="6" Margin="0,0,3,0" Fill="{Binding BackgroundColor, Converter={haf:ColorToBrushConverter}}"/>
                     <Rectangle Width="18" Height="6" Margin="0,0,3,0" Fill="{Binding ControlColor, Converter={haf:ColorToBrushConverter}}"/>
                     <Rectangle Width="18" Height="6" Margin="0,0,3,0" Fill="{Binding TextColor, Converter={haf:ColorToBrushConverter}}"/>
@@ -22,7 +21,8 @@
                     <Rectangle Width="18" Height="6" Margin="0,0,3,0" Fill="{Binding ErrorForegroundColor, Converter={haf:ColorToBrushConverter}}"/>
                     <Rectangle Width="18" Height="6" Margin="0,0,3,0" Fill="{Binding ErrorBackgroundColor, Converter={haf:ColorToBrushConverter}}"/>
                 </StackPanel>
-            </StackPanel>
+                <TextBlock Text="{Binding Name.Value}"/>
+            </DockPanel>
         </DataTemplate>
     </UserControl.Resources>
     <haf:FormRow Header="{haf:Localize Theme}">
