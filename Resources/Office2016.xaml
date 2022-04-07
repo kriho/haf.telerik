@@ -196,7 +196,7 @@
             <Border x:Name="HeaderContainer" Grid.Row="1" Grid.Column="1">
                 <DockPanel Background="{DynamicResource ThemeAccentBrush}" Visibility="{Binding SelectedItem.PaneHeaderVisibility, RelativeSource={RelativeSource TemplatedParent}}">
                     <telerik:RadButton Command="telerik:RadDockingCommands.Close" DockPanel.Dock="Right" Padding="3,0" BorderThickness="0" Background="Transparent" Visibility="{Binding SelectedPane.CanUserClose, RelativeSource={RelativeSource TemplatedParent}, Converter={haf:BooleanToVisibilityConverter}}">
-                        <haf:GeometryIcon Foreground="{DynamicResource ThemeControlBrush}" Geometry="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" DockPanel.Dock="Right"/>
+                        <haf:GeometryIcon Foreground="{DynamicResource ThemeInvertedTextBrush}" Geometry="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" DockPanel.Dock="Right"/>
                     </telerik:RadButton>
                     <haf:HelpButton DockPanel.Dock="Right" Padding="3,0" BorderThickness="0" Background="Transparent" CommandParameter="{Binding SelectedPane.(haf:Behavior.SupportUrl), RelativeSource={RelativeSource TemplatedParent}}" haf:Behavior.DisabledVisibility="Collapsed">
                         <haf:HelpButton.ToolTip>
@@ -205,9 +205,9 @@
                                 <Run Text="{Binding SelectedPane.(haf:Behavior.SupportUrl), RelativeSource={RelativeSource TemplatedParent}, Mode=OneWay}" Foreground="{DynamicResource ThemeAccentBrush}"/>.
                             </TextBlock>
                         </haf:HelpButton.ToolTip>
-                        <haf:GeometryIcon Foreground="{DynamicResource ThemeControlBrush}" Geometry="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/>
+                        <haf:GeometryIcon Foreground="{DynamicResource ThemeInvertedTextBrush}" Geometry="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/>
                     </haf:HelpButton>
-                    <TextBlock Text="{Binding SelectedPane.Header, RelativeSource={RelativeSource TemplatedParent}}" FontSize="15" Margin="5,2" Foreground="{DynamicResource ThemeControlBrush}"/>
+                    <TextBlock Text="{Binding SelectedPane.Header, RelativeSource={RelativeSource TemplatedParent}}" FontSize="15" Margin="5,2" Foreground="{DynamicResource ThemeInvertedTextBrush}"/>
                 </DockPanel>
             </Border>
             <Border Grid.Row="2" Background="Transparent" Grid.Column="1" BorderThickness="1,0,1,1" BorderBrush="{DynamicResource ThemeStrongBrush}"/>
@@ -317,9 +317,8 @@
         <Setter Property="haf:Behavior.SecondaryForeground" Value="{DynamicResource ThemeSecondaryBrush}"/>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Foreground" Value="{DynamicResource ThemeBackgroundBrush}"/>
-                <Setter Property="haf:Behavior.SecondaryForeground" Value="{DynamicResource ThemeLightBrush}"/>
-                <Setter Property="TextElement.Foreground" Value="{DynamicResource ThemeBackgroundBrush}"/>
+                <Setter Property="Foreground" Value="{DynamicResource ThemeInvertedTextBrush}"/>
+                <Setter Property="haf:Behavior.SecondaryForeground" Value="{DynamicResource ThemeInvertedSecondaryBrush}"/>
             </Trigger>
         </Style.Triggers>
     </Style>
@@ -327,10 +326,11 @@
     <Style TargetType="telerik:RadDropDownButton" BasedOn="{StaticResource RadDropDownButtonStyle}">
         <Setter Property="CloseOnEscape" Value="True"/>
         <Setter Property="Foreground" Value="{DynamicResource ThemeTextBrush}"/>
+        <Setter Property="haf:Behavior.SecondaryForeground" Value="{DynamicResource ThemeSecondaryBrush}"/>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Foreground" Value="{DynamicResource ThemeBackgroundBrush}"/>
-                <Setter Property="TextElement.Foreground" Value="{DynamicResource ThemeBackgroundBrush}"/>
+                <Setter Property="Foreground" Value="{DynamicResource ThemeInvertedTextBrush}"/>
+                <Setter Property="haf:Behavior.SecondaryForeground" Value="{DynamicResource ThemeInvertedSecondaryBrush}"/>
             </Trigger>
         </Style.Triggers>
     </Style>
@@ -340,9 +340,11 @@
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Margin" Value="0,0,0,3"/>
         <Setter Property="Foreground" Value="{DynamicResource ThemeTextBrush}"/>
+        <Setter Property="haf:Behavior.SecondaryForeground" Value="{DynamicResource ThemeSecondaryBrush}"/>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Foreground" Value="{DynamicResource ThemeBackgroundBrush}"/>
+                <Setter Property="Foreground" Value="{DynamicResource ThemeInvertedTextBrush}"/>
+                <Setter Property="haf:Behavior.SecondaryForeground" Value="{DynamicResource ThemeInvertedSecondaryBrush}"/>
             </Trigger>
         </Style.Triggers>
     </Style>
@@ -351,21 +353,26 @@
     <Style TargetType="telerik:RadSplitButton" BasedOn="{StaticResource RadSplitButtonStyle}">
         <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisualStyle}"/>
         <Setter Property="Foreground" Value="{DynamicResource ThemeTextBrush}"/>
+        <Setter Property="haf:Behavior.SecondaryForeground" Value="{DynamicResource ThemeSecondaryBrush}"/>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Foreground" Value="{DynamicResource ThemeBackgroundBrush}"/>
+                <Setter Property="Foreground" Value="{DynamicResource ThemeInvertedTextBrush}"/>
+                <Setter Property="haf:Behavior.SecondaryForeground" Value="{DynamicResource ThemeInvertedSecondaryBrush}"/>
             </Trigger>
         </Style.Triggers>
     </Style>
 
     <Style TargetType="telerik:RadToggleButton" BasedOn="{StaticResource RadToggleButtonStyle}">
         <Setter Property="Foreground" Value="{DynamicResource ThemeTextBrush}"/>
+        <Setter Property="haf:Behavior.SecondaryForeground" Value="{DynamicResource ThemeSecondaryBrush}"/>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Foreground" Value="{DynamicResource ThemeBackgroundBrush}"/>
+                <Setter Property="Foreground" Value="{DynamicResource ThemeInvertedTextBrush}"/>
+                <Setter Property="haf:Behavior.SecondaryForeground" Value="{DynamicResource ThemeInvertedSecondaryBrush}"/>
             </Trigger>
             <Trigger Property="IsChecked" Value="True">
-                <Setter Property="Foreground" Value="{DynamicResource ThemeBackgroundBrush}"/>
+                <Setter Property="Foreground" Value="{DynamicResource ThemeInvertedTextBrush}"/>
+                <Setter Property="haf:Behavior.SecondaryForeground" Value="{DynamicResource ThemeInvertedSecondaryBrush}"/>
             </Trigger>
         </Style.Triggers>
     </Style>
@@ -412,6 +419,7 @@
     <Style TargetType="TextBox">
         <Setter Property="Background" Value="{DynamicResource ThemeControlBrush}"/>
         <Setter Property="Foreground" Value="{DynamicResource ThemeTextBrush}"/>
+        <Setter Property="haf:Behavior.SecondaryForeground" Value="{DynamicResource ThemeSecondaryBrush}"/>
     </Style>
 
     <Style x:Key="SlimList" TargetType="telerik:RadListBox" BasedOn="{StaticResource RadListBoxStyle}">
