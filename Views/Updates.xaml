@@ -9,14 +9,14 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Margin="1">
-        <Border BorderThickness="1" BorderBrush="{telerik:Office2013Resource ResourceKey=HighDarkBrush}" Padding="5,0" Visibility="{Binding SupportsUpdates, Converter={haf:BooleanToVisibilityConverter Inverted=True}, UpdateSourceTrigger=PropertyChanged}">
+        <Border BorderThickness="1" BorderBrush="{DynamicResource ThemeStrongBrush}" Padding="5,0" Visibility="{Binding SupportsUpdates, Converter={haf:BooleanToVisibilityConverter Inverted=True}, UpdateSourceTrigger=PropertyChanged}">
             <TextBlock Text="Updates not avaliable" Foreground="Gray" VerticalAlignment="Center"/>
         </Border>
         <Grid Visibility="{Binding SupportsUpdates, Converter={haf:BooleanToVisibilityConverter}, UpdateSourceTrigger=PropertyChanged}">
             <DockPanel Visibility="{Binding IsBusy, Converter={haf:BooleanToVisibilityConverter}, UpdateSourceTrigger=PropertyChanged}" MaxWidth="150">
                 <telerik:RadButton Content="Cancel" DockPanel.Dock="Right"/>
-                <Border Padding="3" BorderThickness="1,1,0,1" BorderBrush="{telerik:Office2013Resource ResourceKey=HighDarkBrush}">
-                    <telerik:RadProgressBar Minimum="0" Width="100" Value="{Binding Progress, UpdateSourceTrigger=PropertyChanged}" Foreground="{telerik:Office2013Resource ResourceKey=MediumDarkBrush}"/>
+                <Border Padding="3" BorderThickness="1,1,0,1" BorderBrush="{DynamicResource ThemeStrongBrush}">
+                    <telerik:RadProgressBar Minimum="0" Width="100" Value="{Binding Progress, UpdateSourceTrigger=PropertyChanged}" Foreground="{DynamicResource ThemeAccentBrush}"/>
                 </Border>
             </DockPanel>
             <Grid Visibility="{Binding IsBusy, Converter={haf:BooleanToVisibilityConverter Inverted=True}, UpdateSourceTrigger=PropertyChanged}">
