@@ -59,6 +59,9 @@ namespace HAF {
           Telerik.Windows.Controls.Windows8Palette.Palette.AccentColor = this.ActiveTheme.Accent;
         }
       } else if (this.TelerikTheme == TelerikTheme.Office2016) {
+        if (property == null || property == "DisabledOpacity") {
+          Telerik.Windows.Controls.Office2016Palette.Palette.DisabledOpacity = this.ActiveTheme.DisabledOpacity;
+        }
         if (property == null || property == "Background") {
           Telerik.Windows.Controls.Office2016Palette.Palette.AlternativeColor = this.ActiveTheme.Background;
           Telerik.Windows.Controls.Office2016Palette.Palette.MouseOverColor = this.ActiveTheme.Background;
