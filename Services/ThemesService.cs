@@ -43,52 +43,54 @@ namespace HAF {
       base.ApplyTheme(theme, property);
       // update telerik colors
       if (this.TelerikTheme == TelerikTheme.Windows8) {
-        if (property == null || property == "BackgroundColor") {
-          Telerik.Windows.Controls.Windows8Palette.Palette.MainColor = this.ActiveTheme.BackgroundColor;
+        if (property == null || property == "Background") {
+          Telerik.Windows.Controls.Windows8Palette.Palette.MainColor = this.ActiveTheme.Background;
         }
-        if (property == null || property == "TextColor") {
-          Telerik.Windows.Controls.Windows8Palette.Palette.MarkerColor = this.ActiveTheme.TextColor;
+        if(property == null || property == "Light") {
+          Telerik.Windows.Controls.Windows8Palette.Palette.BasicColor = this.ActiveTheme.Light;
         }
-        if (property == null || property == "AccentColor") {
-          Telerik.Windows.Controls.Windows8Palette.Palette.AccentColor = this.ActiveTheme.AccentColor;
+        if(property == null || property == "Strong") {
+          Telerik.Windows.Controls.Windows8Palette.Palette.StrongColor = this.ActiveTheme.Strong;
         }
-        if (property == null || property == "LightColor") {
-          Telerik.Windows.Controls.Windows8Palette.Palette.BasicColor = this.ActiveTheme.LightColor;
+        if (property == null || property == "Text") {
+          Telerik.Windows.Controls.Windows8Palette.Palette.MarkerColor = this.ActiveTheme.Text;
         }
-        if (property == null || property == "StrongColor") {
-          Telerik.Windows.Controls.Windows8Palette.Palette.StrongColor = this.ActiveTheme.StrongColor;
+        if (property == null || property == "Accent") {
+          Telerik.Windows.Controls.Windows8Palette.Palette.AccentColor = this.ActiveTheme.Accent;
         }
       } else if (this.TelerikTheme == TelerikTheme.Office2016) {
-        if (property == null || property == "ActionColor") {
-          Telerik.Windows.Controls.Office2016Palette.Palette.AccentFocusedColor = this.ActiveTheme.ActionColor;
-          Telerik.Windows.Controls.Office2016Palette.Palette.AccentMouseOverColor = this.ActiveTheme.ActionColor;
-          Telerik.Windows.Controls.Office2016Palette.Palette.PressedColor = this.ActiveTheme.ActionColor;
-          Telerik.Windows.Controls.Office2016Palette.Palette.AccentPressedColor = this.ActiveTheme.ActionColor;
+        if (property == null || property == "Background") {
+          Telerik.Windows.Controls.Office2016Palette.Palette.AlternativeColor = this.ActiveTheme.Background;
+          Telerik.Windows.Controls.Office2016Palette.Palette.MouseOverColor = this.ActiveTheme.Background;
         }
-        if (property == null || property == "ControlColor") {
-          Telerik.Windows.Controls.Office2016Palette.Palette.MainColor = this.ActiveTheme.ControlColor;
+        if(property == null || property == "Control") {
+          Telerik.Windows.Controls.Office2016Palette.Palette.MainColor = this.ActiveTheme.Control;
         }
-        if (property == null || property == "BackgroundColor") {
-          Telerik.Windows.Controls.Office2016Palette.Palette.AlternativeColor = this.ActiveTheme.BackgroundColor;
-          Telerik.Windows.Controls.Office2016Palette.Palette.MouseOverColor = this.ActiveTheme.BackgroundColor;
-          Telerik.Windows.Controls.Office2016Palette.Palette.MarkerInvertedColor = this.ActiveTheme.BackgroundColor; // inverted text
+        if(property == null || property == "Light") {
+          Telerik.Windows.Controls.Office2016Palette.Palette.PrimaryColor = this.ActiveTheme.Light;
+          Telerik.Windows.Controls.Office2016Palette.Palette.SelectedColor = this.ActiveTheme.Light;
         }
-        if (property == null || property == "TextColor") {
-          Telerik.Windows.Controls.Office2016Palette.Palette.MarkerColor = this.ActiveTheme.TextColor;
+        if(property == null || property == "Strong") {
+          Telerik.Windows.Controls.Office2016Palette.Palette.BasicColor = this.ActiveTheme.Strong;
         }
-        if (property == null || property == "AccentColor") {
-          Telerik.Windows.Controls.Office2016Palette.Palette.AccentColor = this.ActiveTheme.AccentColor;
-          Telerik.Windows.Controls.Office2016Palette.Palette.ComplementaryColor = this.ActiveTheme.AccentColor;
+        if(property == null || property == "SecondaryColor") {
+          Telerik.Windows.Controls.Office2016Palette.Palette.IconColor = this.ActiveTheme.Secondary;
         }
-        if (property == null || property == "LightColor") {
-          Telerik.Windows.Controls.Office2016Palette.Palette.PrimaryColor = this.ActiveTheme.LightColor;
-          Telerik.Windows.Controls.Office2016Palette.Palette.SelectedColor = this.ActiveTheme.LightColor;
+        if (property == null || property == "Text") {
+          Telerik.Windows.Controls.Office2016Palette.Palette.MarkerColor = this.ActiveTheme.Text;
         }
-        if (property == null || property == "StrongColor") {
-          Telerik.Windows.Controls.Office2016Palette.Palette.BasicColor = this.ActiveTheme.StrongColor;
+        if(property == null || property == "InvertedText") {
+          Telerik.Windows.Controls.Office2016Palette.Palette.MarkerInvertedColor = this.ActiveTheme.InvertedText;
         }
-        if (property == null || property == "SecondaryColor") {
-          Telerik.Windows.Controls.Office2016Palette.Palette.IconColor = this.ActiveTheme.SecondaryColor;
+        if (property == null || property == "Accent") {
+          Telerik.Windows.Controls.Office2016Palette.Palette.AccentColor = this.ActiveTheme.Accent;
+          Telerik.Windows.Controls.Office2016Palette.Palette.ComplementaryColor = this.ActiveTheme.Accent;
+        }
+        if(property == null || property == "Action") {
+          Telerik.Windows.Controls.Office2016Palette.Palette.AccentFocusedColor = this.ActiveTheme.Action;
+          Telerik.Windows.Controls.Office2016Palette.Palette.AccentMouseOverColor = this.ActiveTheme.Action;
+          Telerik.Windows.Controls.Office2016Palette.Palette.PressedColor = this.ActiveTheme.Action;
+          Telerik.Windows.Controls.Office2016Palette.Palette.AccentPressedColor = this.ActiveTheme.Action;
         }
       }
     }
