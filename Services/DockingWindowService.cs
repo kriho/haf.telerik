@@ -62,7 +62,7 @@ namespace HAF {
             CanUserClose = canUserClose,
             CanUserPin = false,
           };
-          Telerik.Windows.Controls.RadDocking.SetSerializationTag(pane, name);
+          Telerik.Windows.Controls.RadDocking.SetSerializationTag(pane, name.Replace(" ", ""));
           this.docking.ActivePane.PaneGroup.Items.Add(pane);
         } else {
           Log.Error("select a pane to add new panes to the same pane group");
