@@ -41,7 +41,7 @@ namespace HAF {
 
     public void ShowPane(string name) {
       var existingPane = this.docking.Panes.FirstOrDefault(p => p.Header.ToString() == name);
-      if (existingPane != null) {
+      if (existingPane != null && !existingPane.IsSelected) {
         existingPane.IsActive = true;
       }
     }
