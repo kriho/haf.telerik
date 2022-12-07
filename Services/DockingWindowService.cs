@@ -69,5 +69,13 @@ namespace HAF {
         }
       }
     }
+
+    public void MovePane(string name) {
+      var existingPane = this.docking.Panes.FirstOrDefault(p => p.Header.ToString() == name);
+      if (existingPane != null) {
+        existingPane.RemoveFromParent();
+        this.docking.ActivePane.PaneGroup.AddItem(existingPane, Telerik.Windows.Controls.Docking.DockPosition.Center);
+      }
+    }
   }
 }
