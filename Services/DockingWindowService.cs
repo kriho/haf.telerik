@@ -33,9 +33,12 @@ namespace HAF {
       }
     }
 
-    public void SetWindowLayout(string layout) {
+    public void SetWindowLayout(string layout, bool clearDocumentHost) {
       using (var stream = new MemoryStream(Convert.FromBase64String(layout))) {
         this.docking.LoadLayout(stream);
+        if(clearDocumentHost && this.docking.DocumentHost is RadSplitContainer container) {
+          container.Items.Clear();
+        }
       }
     }
 
@@ -49,7 +52,7 @@ namespace HAF {
     public void ShowPane(string name, Type viewType, bool canUserClose) {
       var existingPane = this.docking.Panes.FirstOrDefault(p => p.Header.ToString() == name);
       if (existingPane != null) {
-        if(existingPane.Content == null) {
+        if(existingPane.Contenct == null) {
           existingPane.Content = Activator.CreateInstance(viewType);
         }
         existingPane.IsHidden = false;
@@ -67,6 +70,14 @@ namespace HAF {
         } else {
           Log.Error("select a pane to add new panes to the same pane group");
         }
+      }
+    }
+
+    public void MovePane(string name) {
+      var existingPane = this.docking.Panes.FirstOrDefault(p => p.Header.ToString() == name);
+      if (existingPane != null) {
+        existingPane.RemoveFromParent();
+        this.docking.ActivePane.PaneGroup.AddItem(existingPane, Telerik.Windows.Controls.Docking.DockPosition.Center);
       }
     }
   }
