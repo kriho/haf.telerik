@@ -7,7 +7,7 @@
         <Grid>
             <AdornedElementPlaceholder/>
             <Rectangle Fill="{DynamicResource ThemeBackgroundErrorBrush}" Margin="3" Opacity="0.3" IsHitTestVisible="False"/>
-            <Path Data="M0,0 L13,13 13,0" Fill="{DynamicResource ThemeTextErrorBrush}" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+            <Path Data="M0,0 L13,13 13,0" Fill="{DynamicResource ThemeTextErrorBrush}" IsHitTestVisible="False" HorizontalAlignment="Right" VerticalAlignment="Top"/>
         </Grid>
     </ControlTemplate>
 
@@ -629,6 +629,10 @@
             </Setter.Value>
         </Setter>
         <Setter Property="Foreground" Value="{telerik:Windows8Resource ResourceKey=MarkerBrush}"/>
+    </Style>
+
+    <Style TargetType="telerik:RadNumericUpDown" BasedOn="{StaticResource RadNumericUpDownStyle}">
+        <Setter Property="Validation.ErrorTemplate" Value="{StaticResource DefaultValidationTemplate}"/>
     </Style>
 
 </ResourceDictionary>
